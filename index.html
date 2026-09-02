@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apex Espresso | Café & Bistro</title>
+
+    <meta name="description"
+          content="Apex Espresso - Premium coffee, pizzas, pasta, mojitos and refreshing drinks.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f7f0e5;
+            color: #3d3026;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 3px 20px rgba(60,40,20,0.08);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #6f4e37;
+        }
+
+        .logo span {
+            color: #a67c52;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #a67c52;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            padding-top: 100px;
+
+            background:
+                linear-gradient(
+                    rgba(247,240,229,0.85),
+                    rgba(247,240,229,0.92)
+                ),
+                url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero small {
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #8c6a4d;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 110px);
+            color: #4c3728;
+            margin: 15px 0;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 650px;
+            margin: auto;
+            color: #665548;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #6f4e37;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4e3626;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid #6f4e37;
+            color: #6f4e37;
+        }
+
+        .btn-outline:hover {
+            background: #6f4e37;
+            color: white;
+        }
+
+        /* =========================
+           SECTION TITLE
+        ========================= */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: #a67c52;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .section-title h2 {
+            font-size: 45px;
+            margin-top: 8px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: #fff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 450px;
+            border-radius: 25px;
+            background:
+                url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80")
+                center/cover;
+            box-shadow: 0 20px 50px rgba(60,40,20,0.15);
+        }
+
+        .about-text h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #75665a;
+            margin-bottom: 18px;
+        }
+
+        /* =========================
+           MENU
+        ========================= */
+
+        .menu {
+            background: #f7f0e5;
+        }
+
+        .menu-category {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .category-title h3 {
+            font-size: 30px;
+        }
+
+        .category-line {
+            flex: 1;
+            height: 1px;
+            background: #d8c5ae;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .menu-item {
+            background: rgba(255,255,255,0.8);
+            border: 1px solid #eadccc;
+            border-radius: 16px;
+            padding: 22px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            transition: 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(70,45,25,0.1);
+            background: white;
+        }
+
+        .menu-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .menu-item p {
+            font-size: 12px;
+            color: #8c7a69;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #6f4e37;
+            font-size: 18px;
+            white-space: nowrap;
+        }
+
+        /* =========================
+           GALLERY
+        ========================= */
+
+        .gallery {
+            background: #fff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .gallery-item {
+            height: 280px;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            padding: 20px;
+
+            color: white;
+            font-weight: 600;
+
+            background: linear-gradient(
+                transparent,
+                rgba(0,0,0,0.75)
+            );
+        }
+
+        /* =========================
+           HOURS / LOCATION
+        ========================= */
+
+        .visit {
+            background: #6f4e37;
+            color: white;
+        }
+
+        .visit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .visit-card {
+            padding: 35px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .visit-card h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .visit-card p {
+            color: #eadfd4;
+            margin-bottom: 10px;
+        }
+
+        .map-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+
+            background: white;
+            color: #6f4e37;
+
+            border-radius: 25px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .map-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           MUSIC CONTROL
+        ========================= */
+
+        .music-control {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 999;
+
+            background: #6f4e37;
+            color: white;
+
+            border: none;
+            border-radius: 50px;
+
+            padding: 12px 18px;
+
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #30241c;
+            color: #d9cbbd;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer h2 {
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 13px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid,
+            .visit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width: 550px) {
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .menu-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 320px;
+            }
+
+            .section-title h2 {
+                font-size: 36px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+
+    <div class="logo">
+        Apex <span>Espresso</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#visit">Visit Us</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <small>Welcome to</small>
+
+        <h1>Apex Espresso</h1>
+
+        <p>
+            Where great coffee, delicious food and unforgettable
+            moments come together.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#menu" class="btn btn-primary">
+                Explore Menu
+            </a>
+
+            <a href="#visit" class="btn btn-outline">
+                Visit Us
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-image"></div>
+
+            <div class="about-text">
+
+                <small>OUR STORY</small>
+
+                <h2>A Place Made for Coffee Lovers</h2>
+
+                <p>
+                    Welcome to Apex Espresso, a cozy café where
+                    freshly prepared food meets carefully crafted
+                    beverages.
+                </p>
+
+                <p>
+                    Whether you're looking for a quick coffee,
+                    delicious pizza with friends, or a refreshing
+                    mojito, Apex Espresso has something for everyone.
+                </p>
+
+                <a href="#menu" class="btn btn-primary">
+                    View Our Menu
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<section class="menu" id="menu">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <small>Our Menu</small>
+
+            <h2>Fresh. Delicious. Simple.</h2>
+
+        </div>
+
+
+        <!-- PIZZAS -->
+
+        <div class="menu-category">
+
+            <div class="category-title">
+
+                <h3>🍕 Pizzas</h3>
+
+                <div class="category-line"></div>
+
+            </div>
+
+            <div class="menu-grid">
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Margherita</h4>
+                        <p>Classic tomato & cheese</p>
+                    </div>
+                    <span class="price">$3</span>
+                </div>
+
+                <div class="menu-item">
+                    <div>
+                        <h4>The Indian Choice</h4>
+                        <p>Indian-inspired flavors</p>
+                    </div>
+                    <span class="price">$3</span>
+                </div>
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Paneer Lover</h4>
+                        <p>Loaded with paneer</p>
+                    </div>
+                    <span class="price">$3</span>
+                </div>
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Cheesy Paneer</h4>
+                        <p>Extra cheese & paneer</p>
+                    </div>
+                    <span class="price">$3</span>
+                </div>
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Pepperoni</h4>
+                        <p>Classic pepperoni pizza</p>
+                    </div>
+                    <span class="price">$3</span>
+                </div>
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Corn Cheese</h4>
+                        <p>Sweet corn & creamy cheese</p>
+                    </div>
+                    <span class="price">$3</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PASTA -->
+
+        <div class="menu-category">
+
+            <div class="category-title">
+
+                <h3>🍝 Pastas</h3>
+
+                <div class="category-line"></div>
+
+            </div>
+
+            <div class="menu-grid">
+
+                <div class="menu-item">
+                    <div>
+                        <h4>White Sauce Pasta</h4>
+                        <p>Creamy & delicious</p>
+                    </div>
+                    <span class="price">$4</span>
+                </div>
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Chili Pasta</h4>
+                        <p>Spicy & flavorful</p>
+                    </div>
+                    <span class="price">$4</span>
+                </div>
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Regular Pasta</h4>
+                        <p>Classic pasta preparation</p>
+                    </div>
+                    <span class="price">$4</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COFFEE -->
+
+        <div class="menu-category">
+
+            <div class="category-title">
+
+                <h3>☕ Coffees & Hot Drinks</h3>
+
+                <div class="category-line"></div>
+
+            </div>
+
+            <div class="menu-grid">
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Cold Coffee</h4>
+                        <p>Chilled creamy coffee</p>
+                    </div>
+                    <span class="price">$20</span>
+                </div>
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Hot Chocolate</h4>
+                        <p>Rich chocolate drink</p>
+                    </div>
+                    <span class="price">$20</span>
+                </div>
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Cappuccino</h4>
+                        <p>Classic espresso & milk</p>
+                    </div>
+                    <span class="price">$20</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MOJITOS -->
+
+        <div class="menu-category">
+
+            <div class="category-title">
+
+                <h3>🍹 Trending Mojitos</h3>
+
+                <div class="category-line"></div>
+
+            </div>
+
+            <div class="menu-grid">
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Virgin Mojito</h4>
+                        <p>Fresh mint & lime</p>
+                    </div>
+                    <span class="price">$2</span>
+                </div>
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Sprite & Pulse Mojito</h4>
+                        <p>Refreshing & tangy</p>
+                    </div>
+                    <span class="price">$2</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SOFT DRINKS -->
+
+        <div class="menu-category">
+
+            <div class="category-title">
+
+                <h3>🥤 Soft Drinks</h3>
+
+                <div class="category-line"></div>
+
+            </div>
+
+            <div class="menu-grid">
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Coca-Cola</h4>
+                        <p>Chilled soft drink</p>
+                    </div>
+                    <span class="price">$0.5</span>
+                </div>
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Fanta</h4>
+                        <p>Orange flavored</p>
+                    </div>
+                    <span class="price">$0.5</span>
+                </div>
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Mirinda</h4>
+                        <p>Refreshing orange drink</p>
+                    </div>
+                    <span class="price">$0.5</span>
+                </div>
+
+                <div class="menu-item">
+                    <div>
+                        <h4>Limca</h4>
+                        <p>Lemon-lime refreshment</p>
+                    </div>
+                    <span class="price">$0.5</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section class="gallery" id="gallery">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <small>Gallery</small>
+
+            <h2>A Taste of Apex</h2>
+
+        </div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1000&q=80"
+                    alt="Margherita Pizza"
+                >
+
+                <div class="gallery-label">
+                    Margherita Pizza
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1000&q=80"
+                    alt="Cheesy Pizza"
+                >
+
+                <div class="gallery-label">
+                    Cheesy Pizza
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=1000&q=80"
+                    alt="Corn Cheese Pizza"
+                >
+
+                <div class="gallery-label">
+                    Corn Cheese Pizza
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=1000&q=80"
+                    alt="Virgin Mojito"
+                >
+
+                <div class="gallery-label">
+                    Virgin Mojito
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?auto=format&fit=crop&w=1000&q=80"
+                    alt="Cappuccino"
+                >
+
+                <div class="gallery-label">
+                    Cappuccino
+                </div>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=1000&q=80"
+                    alt="Hot Chocolate and Coffee"
+                >
+
+                <div class="gallery-label">
+                    Hot Chocolate & Cold Coffee
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     VISIT
+========================= -->
+
+<section class="visit" id="visit">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <small style="color:#d9b894;">Come Visit</small>
+
+            <h2>Find Us</h2>
+
+        </div>
+
+        <div class="visit-grid">
+
+            <div class="visit-card">
+
+                <h3>🕙 Opening Hours</h3>
+
+                <p><strong>Monday – Sunday</strong></p>
+
+                <p>10:00 AM – 9:00 PM</p>
+
+                <p>
+                    Come by anytime for your favorite coffee,
+                    food or refreshing drink.
+                </p>
+
+            </div>
+
+
+            <div class="visit-card">
+
+                <h3>📍 Our Location</h3>
+
+                <p>
+                    Apex Espresso
+                </p>
+
+                <p>
+                    Find our café on Google Maps.
+                </p>
+
+                <!-- Replace the search text below with your actual
+                     cafe address once you have it. -->
+
+                <a
+                    class="map-button"
+                    href="https://www.google.com/maps/search/?api=1&query=Apex+Espresso"
+                    target="_blank"
+                >
+                    Open Google Maps →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h2>Apex Espresso</h2>
+
+    <p>
+        Coffee • Food • Friends • Good Times
+    </p>
+
+    <p style="margin-top:10px;">
+        © 2026 Apex Espresso. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<!--
+    IMPORTANT:
+    Put your legally obtained audio file in the same folder
+    as this HTML file and name it:
+
+    lyon-confluence.mp3
+
+    The browser will attempt to play it repeatedly.
+-->
+
+<audio id="cafeMusic" loop preload="auto">
+    <source src="lyon-confluence.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-control" id="musicButton">
+    🎵 Music Off
+</button>
+
+
+<script>
+
+    /* =========================
+       MUSIC
+    ========================= */
+
+    const music = document.getElementById("cafeMusic");
+    const musicButton = document.getElementById("musicButton");
+
+    let musicPlaying = false;
+
+    /*
+       Modern browsers normally block automatic audio playback
+       until the visitor interacts with the page.
+
+       After the first click/touch, music can start.
+    */
+
+    function startMusic() {
+
+        if (!musicPlaying) {
+
+            music.play()
+                .then(() => {
+
+                    musicPlaying = true;
+                    musicButton.innerHTML = "🔊 Music On";
+
+                })
+                .catch(() => {
+
+                    musicButton.innerHTML = "🎵 Click for Music";
+
+                });
+
+        }
+
+    }
+
+    document.addEventListener("click", startMusic, {
+        once: true
+    });
+
+
+    musicButton.addEventListener("click", function(event) {
+
+        event.stopPropagation();
+
+        if (musicPlaying) {
+
+            music.pause();
+
+            musicPlaying = false;
+
+            musicButton.innerHTML = "🎵 Music Off";
+
+        } else {
+
+            music.play()
+                .then(() => {
+
+                    musicPlaying = true;
+
+                    musicButton.innerHTML = "🔊 Music On";
+
+                });
+
+        }
+
+    });
+
+
+    /* =========================
+       NAVBAR SHADOW
+    ========================= */
+
+    window.addEventListener("scroll", function() {
+
+        const nav = document.querySelector("nav");
+
+        if (window.scrollY > 50) {
+
+            nav.style.boxShadow =
+                "0 5px 25px rgba(60,40,20,0.12)";
+
+        } else {
+
+            nav.style.boxShadow =
+                "0 3px 20px rgba(60,40,20,0.08)";
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
